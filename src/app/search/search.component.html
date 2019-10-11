@@ -18,7 +18,7 @@
         <ion-col>
           <p style="text-align: center">
             <ion-label *ngIf="loading">Loading....</ion-label>
-            <ion-chip *ngIf="callGithubService.response">
+            <ion-chip *ngIf="callGithubService.response" (click)="openWindow(callGithubService.response.html_url)" >
               <ion-avatar>
                 <img src="{{callGithubService.avatarUrl}}">
               </ion-avatar>

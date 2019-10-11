@@ -18,6 +18,10 @@ export class SearchComponent implements OnInit {
     this.navCtrl.navigateForward(['repo',{ item: item}]);	
 }  
 
+openWindow(url){
+  window.open(url, '_system');
+}
+
   ngOnInit() {}
 
 }
