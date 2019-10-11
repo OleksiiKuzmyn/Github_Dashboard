@@ -34,7 +34,6 @@ export class CallGithubService {
     }
 
     onCancel(){
-      console.log("dsdsfsdd");
       this.userName='';
       this.avatarUrl='';
       this.name='';
