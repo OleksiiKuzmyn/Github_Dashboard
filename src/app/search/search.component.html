@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Github Dashboard sample
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar [(ngModel)]="callGithubService.userName" [ngModelOptions]="{standalone: true}" placeholder="Username"
+    (ionInput)="callGithubService.search()" (ionFocus)="callGithubService.search()"  (ionCancel)="callGithubService.onCancel()">
+  </ion-searchbar>
+
+ 
+  <div>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <p style="text-align: center">
+            <ion-label *ngIf="loading">Loading....</ion-label>
+            <ion-chip *ngIf="callGithubService.response">
+              <ion-avatar>
+                <img src="{{callGithubService.avatarUrl}}">
+              </ion-avatar>
+              <ion-label>{{callGithubService.name}}</ion-label>
+            </ion-chip>
+          </p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </div>
+  <div *ngIf="callGithubService.repos">
+    <ion-item *ngFor="let repo of callGithubService.repos; let i = index" class="list-selected"
+      (click)="openReposPage(i)">
+      <ion-icon name="filing" ></ion-icon>
+      <ion-label >{{repo.name}}</ion-label>
+    </ion-item>
+  </div>
+
+  <!-- <ng-template #rateLimiting>
+      <p style="text-align: center;">API rate limit exceeded (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)</p>
+    </ng-template> -->
+</ion-content>

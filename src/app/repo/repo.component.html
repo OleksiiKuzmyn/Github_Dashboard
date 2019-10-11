@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-toolbar slot="end">
+      <ion-title>{{name}}</ion-title>
+    </ion-toolbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item>
+    <ion-avatar slot="end">
+      <img src="{{callGithubService.avatarUrl}}">
+    </ion-avatar>
+    <ion-label>{{callGithubService.name}}</ion-label>
+  </ion-item>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>{{language}}</ion-card-subtitle>
+      <ion-card-title align-self-center text-center>{{name}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content align-self-center text-center>
+      {{description}}
+    </ion-card-content>
+    <ion-row>
+      <ion-col align-self-center text-center>
+        <ion-note>
+          Created: {{created_at | date:'medium'}}
+        </ion-note>
+      </ion-col>
+      <ion-col align-self-center text-center>
+        <ion-note>
+          Updated:{{updated_at | date:'medium'}}
+        </ion-note>
+      </ion-col>
+    </ion-row>
+
+    <ion-card-subtitle class="openGithub" (click)="openWindow(html_url)" align-self-center text-center>
+        <!-- <ion-icon ios="ios-open" md="md-open"></ion-icon>View Source -->
+        <button primary large (click)="openWindow(html_url)">
+            <ion-icon ios="ios-open" md="md-open"></ion-icon>View Source
+          </button>
+      </ion-card-subtitle>
+     
+
+
+  </ion-card>
+
+
+</ion-content>
